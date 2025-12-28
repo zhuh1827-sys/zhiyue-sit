@@ -1,0 +1,847 @@
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+  <meta charset="UTF-8" />
+  <title>梔悅 Gardenia & Joy｜梔子花香水・花茶・香包・食用色素粉</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="description" content="梔悅 Gardenia & Joy：來自嘉義大林的梔子花香水、花茶、香包與食用色素粉，在地友善耕作，為你裝瓶一整季的花香。">
+  <style>
+    :root {
+      --primary: #f0b13e;     /* 梔子花黃 */
+      --primary-dark: #d69420;
+      --bg: #fffaf4;
+      --text: #333333;
+      --muted: #777777;
+      --card-bg: #ffffff;
+      --accent: #4b6b5a;      /* 綠葉色 */
+      --shadow-soft: 0 14px 30px rgba(0,0,0,0.08);
+      --radius-xl: 24px;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, "Noto Sans TC", system-ui, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.7;
+    }
+
+    img {
+      max-width: 100%;
+      display: block;
+    }
+
+    a {
+      color: inherit;
+      text-decoration: none;
+    }
+
+    /* Header & Nav */
+    header {
+      position: sticky;
+      top: 0;
+      z-index: 20;
+      backdrop-filter: blur(12px);
+      background: rgba(255, 250, 244, 0.9);
+      border-bottom: 1px solid rgba(0,0,0,0.04);
+    }
+
+    .nav {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 0.6rem 1.2rem;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 1rem;
+    }
+
+    .nav-brand {
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+      font-weight: 700;
+      font-size: 1.1rem;
+    }
+
+    .logo-circle {
+      width: 32px;
+      height: 32px;
+      border-radius: 999px;
+      background: radial-gradient(circle at 30% 30%, #fff8e5, var(--primary));
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 0.9rem;
+      color: #7b4b00;
+      box-shadow: 0 4px 10px rgba(0,0,0,0.12);
+    }
+
+    nav ul {
+      display: flex;
+      list-style: none;
+      margin: 0;
+      padding: 0;
+      gap: 1.2rem;
+      font-size: 0.95rem;
+    }
+
+    nav li a {
+      position: relative;
+      padding-bottom: 2px;
+    }
+
+    nav li a::after {
+      content: "";
+      position: absolute;
+      left: 0;
+      bottom: -3px;
+      width: 0;
+      height: 2px;
+      background: var(--primary);
+      transition: width 0.2s ease-out;
+    }
+
+    nav li a:hover::after {
+      width: 100%;
+    }
+
+    .nav-cta {
+      padding: 0.4rem 0.9rem;
+      border-radius: 999px;
+      background: var(--primary);
+      color: #fff;
+      font-size: 0.9rem;
+      border: none;
+      cursor: pointer;
+      box-shadow: 0 8px 18px rgba(240,177,62,0.4);
+      transition: background 0.15s ease-out, transform 0.1s ease-out,
+                  box-shadow 0.15s ease-out;
+      white-space: nowrap;
+    }
+
+    .nav-cta:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 10px 22px rgba(240,177,62,0.5);
+    }
+
+    /* Hero section */
+    .hero {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 2.5rem 1.2rem 2rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 2rem;
+      align-items: center;
+    }
+
+    .hero-tag {
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      padding: 0.18rem 0.7rem;
+      font-size: 0.78rem;
+      border-radius: 999px;
+      background: rgba(240,177,62,0.12);
+      color: var(--accent);
+      margin-bottom: 0.6rem;
+    }
+
+    .hero h1 {
+      font-size: clamp(2rem, 4vw, 2.7rem);
+      margin: 0 0 0.6rem;
+      letter-spacing: 0.04em;
+    }
+
+    .hero h1 span {
+      color: var(--primary-dark);
+    }
+
+    .hero-sub {
+      font-size: 0.98rem;
+      color: var(--muted);
+      max-width: 32rem;
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 0.7rem;
+      margin-bottom: 1.4rem;
+    }
+
+    .btn-primary,
+    .btn-outline {
+      padding: 0.7rem 1.3rem;
+      border-radius: 999px;
+      font-size: 0.95rem;
+      border: none;
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      gap: 0.4rem;
+      transition: all 0.15s ease-out;
+    }
+
+    .btn-primary {
+      background: var(--primary);
+      color: #fff;
+      box-shadow: 0 12px 26px rgba(240,177,62,0.45);
+    }
+
+    .btn-primary:hover {
+      background: var(--primary-dark);
+      transform: translateY(-1px);
+      box-shadow: 0 16px 30px rgba(240,177,62,0.55);
+    }
+
+    .btn-outline {
+      background: transparent;
+      color: var(--accent);
+      border: 1px solid rgba(0,0,0,0.14);
+    }
+
+    .btn-outline:hover {
+      border-color: var(--primary);
+      background: rgba(240,177,62,0.06);
+    }
+
+    .hero-meta {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.2rem;
+      font-size: 0.85rem;
+      color: var(--muted);
+    }
+
+    .hero-meta span strong {
+      display: block;
+      font-size: 1.05rem;
+      color: var(--accent);
+    }
+
+    .hero-right {
+      position: relative;
+    }
+
+    .hero-card {
+      background: linear-gradient(145deg, #fffdf9, #ffe9bd);
+      border-radius: var(--radius-xl);
+      padding: 1.4rem 1.4rem 1.7rem;
+      box-shadow: var(--shadow-soft);
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero-card-tag {
+      font-size: 0.8rem;
+      color: #7b4b00;
+      margin-bottom: 0.5rem;
+      font-weight: 600;
+    }
+
+    .hero-card h2 {
+      margin: 0 0 0.4rem;
+      font-size: 1.4rem;
+    }
+
+    .hero-card p {
+      margin: 0 0 0.7rem;
+      font-size: 0.9rem;
+      color: #654321;
+    }
+
+    .hero-card-pill {
+      font-size: 0.8rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      border: 1px solid rgba(255,255,255,0.9);
+      display: inline-block;
+      margin-bottom: 0.5rem;
+      background: rgba(255,255,255,0.5);
+    }
+
+    .hero-bottle {
+      margin-top: 0.8rem;
+      height: 150px;
+      border-radius: 22px;
+      background: linear-gradient(to top, #f5c86c, #fffaf2);
+      border: 2px solid rgba(255,255,255,0.85);
+      box-shadow: 0 12px 30px rgba(182,116,0,0.35);
+      position: relative;
+    }
+
+    .hero-bottle::before {
+      content: "";
+      position: absolute;
+      inset: 16px 20px 24px;
+      border-radius: 18px;
+      background: radial-gradient(circle at 30% 20%, rgba(255,255,255,0.8), transparent 55%),
+                  radial-gradient(circle at 70% 80%, rgba(255,255,255,0.6), transparent 55%);
+      opacity: 0.9;
+    }
+
+    .hero-bottle-cap {
+      position: absolute;
+      top: -30px;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 56px;
+      height: 28px;
+      border-radius: 999px 999px 10px 10px;
+      background: #f5f1e4;
+      box-shadow: 0 6px 10px rgba(0,0,0,0.12);
+      border: 1px solid rgba(255,255,255,0.8);
+    }
+
+    .hero-note {
+      position: absolute;
+      right: 10px;
+      bottom: 10px;
+      font-size: 0.78rem;
+      color: #7b4b00;
+      background: rgba(255,255,255,0.65);
+      padding: 0.2rem 0.5rem;
+      border-radius: 999px;
+    }
+
+    /* Sections */
+    section {
+      max-width: 1100px;
+      margin: 0 auto;
+      padding: 1.7rem 1.2rem 0;
+    }
+
+    .section-title {
+      font-size: 1.4rem;
+      margin-bottom: 0.3rem;
+    }
+
+    .section-sub {
+      font-size: 0.9rem;
+      color: var(--muted);
+      margin-bottom: 1.2rem;
+    }
+
+    /* Products */
+    .products-grid {
+      display: grid;
+      grid-template-columns: repeat(4, minmax(0, 1fr));
+      gap: 1rem;
+    }
+
+    .product-card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 1rem;
+      box-shadow: 0 10px 22px rgba(0,0,0,0.04);
+      display: flex;
+      flex-direction: column;
+      justify-content: space-between;
+      min-height: 215px;
+    }
+
+    .product-name {
+      font-weight: 600;
+      margin-bottom: 0.3rem;
+    }
+
+    .product-tagline {
+      font-size: 0.85rem;
+      color: var(--muted);
+      margin-bottom: 0.7rem;
+      min-height: 2.6em;
+    }
+
+    .product-price {
+      font-size: 1.05rem;
+      color: var(--primary-dark);
+      font-weight: 700;
+      margin-bottom: 0.4rem;
+    }
+
+    .product-meta {
+      font-size: 0.8rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    .product-actions {
+      display: flex;
+      justify-content: space-between;
+      gap: 0.4rem;
+      align-items: center;
+    }
+
+    .pill {
+      font-size: 0.78rem;
+      padding: 0.2rem 0.6rem;
+      border-radius: 999px;
+      background: rgba(0,0,0,0.04);
+      color: var(--muted);
+    }
+
+    /* Process */
+    .process-steps {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 0.9rem;
+      font-size: 0.9rem;
+    }
+
+    .process-card {
+      background: var(--card-bg);
+      border-radius: 18px;
+      padding: 0.9rem 1rem;
+      box-shadow: 0 10px 24px rgba(0,0,0,0.04);
+      position: relative;
+    }
+
+    .process-step-number {
+      position: absolute;
+      right: 12px;
+      top: 10px;
+      font-size: 0.8rem;
+      color: rgba(0,0,0,0.15);
+    }
+
+    .process-card h3 {
+      margin: 0 0 0.3rem;
+      font-size: 1rem;
+    }
+
+    .process-card p {
+      margin: 0;
+      color: var(--muted);
+    }
+
+    /* Testimonials-ish */
+    .highlight-strip {
+      margin-top: 1.4rem;
+      padding: 0.8rem 1rem;
+      border-radius: 18px;
+      background: linear-gradient(90deg, rgba(240,177,62,0.12), rgba(75,107,90,0.05));
+      font-size: 0.88rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 1.4rem;
+    }
+
+    .highlight-strip span strong {
+      color: var(--accent);
+    }
+
+    /* Order form */
+    .order-card {
+      background: var(--card-bg);
+      border-radius: var(--radius-xl);
+      box-shadow: var(--shadow-soft);
+      padding: 1.3rem 1.4rem 1.5rem;
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(0, 1fr);
+      gap: 1.4rem;
+      margin-bottom: 2.5rem;
+    }
+
+    .order-note {
+      font-size: 0.88rem;
+      color: var(--muted);
+      margin-bottom: 0.6rem;
+    }
+
+    form {
+      display: grid;
+      gap: 0.7rem;
+      font-size: 0.9rem;
+    }
+
+    label {
+      display: block;
+      margin-bottom: 0.25rem;
+    }
+
+    input, select, textarea {
+      width: 100%;
+      padding: 0.5rem 0.6rem;
+      border-radius: 10px;
+      border: 1px solid rgba(0,0,0,0.16);
+      font-size: 0.9rem;
+      font-family: inherit;
+      background: #fff;
+    }
+
+    textarea {
+      min-height: 80px;
+      resize: vertical;
+    }
+
+    .order-summary {
+      font-size: 0.9rem;
+      color: var(--muted);
+    }
+
+    .order-summary h3 {
+      font-size: 1rem;
+      margin-top: 0;
+      margin-bottom: 0.6rem;
+      color: var(--accent);
+    }
+
+    .order-summary ul {
+      padding-left: 1.1rem;
+      margin: 0 0 0.7rem;
+    }
+
+    .order-summary li {
+      margin-bottom: 0.2rem;
+    }
+
+    .tiny {
+      font-size: 0.78rem;
+      color: var(--muted);
+    }
+
+    footer {
+      text-align: center;
+      font-size: 0.8rem;
+      color: var(--muted);
+      padding: 1.5rem 1rem 2.5rem;
+    }
+
+    /* Floating button */
+    .floating-cta {
+      position: fixed;
+      right: 18px;
+      bottom: 18px;
+      z-index: 30;
+    }
+
+    .floating-cta button {
+      padding: 0.8rem 1.3rem;
+      border-radius: 999px;
+      border: none;
+      background: var(--accent);
+      color: #fff;
+      font-size: 0.9rem;
+      box-shadow: 0 14px 28px rgba(0,0,0,0.3);
+      cursor: pointer;
+    }
+
+    .floating-cta button:hover {
+      background: #354a3d;
+    }
+
+    /* Responsive */
+    @media (max-width: 880px) {
+      .hero {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .hero-right {
+        order: -1;
+      }
+      .order-card {
+        grid-template-columns: minmax(0,1fr);
+      }
+      .products-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+      }
+      nav ul {
+        display: none; /* 手機簡單一點，直接只留主按鈕 */
+      }
+    }
+
+    @media (max-width: 560px) {
+      .products-grid {
+        grid-template-columns: minmax(0, 1fr);
+      }
+      .hero {
+        padding-top: 1.8rem;
+      }
+      .hero-card {
+        border-radius: 20px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#top" class="nav-brand">
+      <div class="logo-circle">梔</div>
+      <span>梔悅 Gardenia & Joy</span>
+    </a>
+    <nav>
+      <ul>
+        <li><a href="#story">品牌故事</a></li>
+        <li><a href="#products">產品一覽</a></li>
+        <li><a href="#process">產地製程</a></li>
+        <li><a href="#order">線上訂購</a></li>
+      </ul>
+    </nav>
+    <button class="nav-cta" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
+      立即訂購
+    </button>
+  </div>
+</header>
+
+<main id="top">
+  <!-- Hero -->
+  <section class="hero">
+    <div class="hero-left">
+      <div class="hero-tag">
+        <span>來自嘉義大林的梔子花香</span>
+      </div>
+      <h1>
+        把一整季的<br /><span>梔子花香</span>帶回家
+      </h1>
+      <p class="hero-sub">
+        梔悅 Gardenia & Joy 與在地友善小農合作，將梔子花製成香水、花茶、香包與食用色素粉，讓你在日常的呼吸、飲品與甜點裡，都能聞見熟悉的花香。
+      </p>
+      <div class="hero-actions">
+        <button class="btn-primary" onclick="document.getElementById('products').scrollIntoView({behavior:'smooth'})">
+          看全部產品
+        </button>
+        <button class="btn-outline" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
+          我要下單
+        </button>
+      </div>
+      <div class="hero-meta">
+        <span><strong>4</strong> 種主力商品</span>
+        <span><strong>在地小農</strong> 友善耕作</span>
+        <span><strong>小量手作</strong> 新鮮出貨</span>
+      </div>
+    </div>
+
+    <div class="hero-right">
+      <div class="hero-card">
+        <div class="hero-card-tag">本月主打｜梔子花淡香水 30ml</div>
+        <span class="hero-card-pill">前調 柑橘・中調 梔子花・後調 白麝香</span>
+        <h2>日常也能擁有的花香儀式感</h2>
+        <p>輕柔的梔子花香，帶一點柑橘清新與白麝香尾韻，適合上課、通勤與睡前噴灑，不會過於濃烈卻很有存在感。</p>
+        <div class="hero-bottle">
+          <div class="hero-bottle-cap"></div>
+          <div class="hero-note">NT$650 / 30ml</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Story -->
+  <section id="story">
+    <h2 class="section-title">品牌故事：從上林梔子園出發</h2>
+    <p class="section-sub">
+      大林鎮上林社區早期曾大面積種植黃梔子，日治時期外銷日本作為染料與藥用原料，隨著化學色素興起而逐漸沒落。近年在社區發展協會與小農努力下，以友善耕作重新復育梔子園，將花、果實再一次變成有價值的生活商品。
+    </p>
+    <p style="font-size:0.95rem;">
+      梔悅希望用最簡單的方式，把這份香氣送到更多人手上——
+      一瓶香水、一壺花茶、一個放在枕邊的香包，或是一匙為甜點上色的梔子食用色素粉，
+      都是你和產地連結的方式。
+    </p>
+  </section>
+
+  <!-- Products -->
+  <section id="products">
+    <h2 class="section-title">產品一覽</h2>
+    <p class="section-sub">四款核心商品，對應日常生活的四種小小儀式感。</p>
+
+    <div class="products-grid">
+      <!-- Perfume -->
+      <article class="product-card">
+        <div>
+          <div class="product-name">梔子花淡香水 30ml</div>
+          <div class="product-tagline">柔和花香，搭配柑橘與白麝香，適合每日使用。</div>
+          <div class="product-price">NT$650</div>
+          <div class="product-meta">
+            建議用法：距離身體 10–15cm，噴於耳後、手腕或衣領處。<br />
+            適用場合：上課、約會、睡前放鬆。
+          </div>
+        </div>
+        <div class="product-actions">
+          <span class="pill">人氣主打</span>
+          <button class="btn-outline" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
+            加入訂單
+          </button>
+        </div>
+      </article>
+
+      <!-- Tea -->
+      <article class="product-card">
+        <div>
+          <div class="product-name">梔子花茶包（10入）</div>
+          <div class="product-tagline">以梔子花搭配茶葉調配，沖出淡淡花香與金黃茶湯。</div>
+          <div class="product-price">NT$150 / 盒</div>
+          <div class="product-meta">
+            沖泡建議：以 250–300ml 90℃ 熱水浸泡 3–5 分鐘，依個人喜好增減時間。
+          </div>
+        </div>
+        <div class="product-actions">
+          <span class="pill">下午茶首選</span>
+          <button class="btn-outline" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
+            加入訂單
+          </button>
+        </div>
+      </article>
+
+      <!-- Sachet -->
+      <article class="product-card">
+        <div>
+          <div class="product-name">梔子花香包</div>
+          <div class="product-tagline">使用乾燥梔子花與搭配花材，放在衣櫥、抽屜或枕邊，讓空氣保有淡淡清香。</div>
+          <div class="product-price">NT$120 / 個</div>
+          <div class="product-meta">
+            使用建議：每 2–3 個月可輕捏搖晃，或噴少量香水於外袋增加香氣。
+          </div>
+        </div>
+        <div class="product-actions">
+          <span class="pill">衣櫥・房間・車內</span>
+          <button class="btn-outline" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
+            加入訂單
+          </button>
+        </div>
+      </article>
+
+      <!-- Color powder -->
+      <article class="product-card">
+        <div>
+          <div class="product-name">梔子食用色素粉 50g</div>
+          <div class="product-tagline">以梔子果實萃取，自然黃橙色調，適用於烘焙與飲品上色。</div>
+          <div class="product-price">NT$300 / 罐</div>
+          <div class="product-meta">
+            適用：蛋糕、饅頭、甜湯、飲料等。請依料理份量少量添加並充分混勻。
+          </div>
+        </div>
+        <div class="product-actions">
+          <span class="pill">烘焙店・甜點工作室</span>
+          <button class="btn-outline" onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
+            加入訂單
+          </button>
+        </div>
+      </article>
+    </div>
+  </section>
+
+  <!-- Process -->
+  <section id="process">
+    <h2 class="section-title">產地與製程：我們怎麼做出每一份梔悅</h2>
+    <p class="section-sub">
+      從田間到你手上，每一步都盡量維持梔子花與果實的香氣與色澤，並兼顧衛生與安全。
+    </p>
+
+    <div class="process-steps">
+      <div class="process-card">
+        <div class="process-step-number">01</div>
+        <h3>友善耕作與採收</h3>
+        <p>與上林在地小農合作，以減農藥與友善土地方式栽種梔子花與梔子果，依成熟度分批採收。</p>
+      </div>
+      <div class="process-card">
+        <div class="process-step-number">02</div>
+        <h3>清洗、挑選與乾燥</h3>
+        <p>採收後立即清洗、去除雜質，使用低溫烘乾或日光室內陰乾方式，保留香氣並降低水分。</p>
+      </div>
+      <div class="process-card">
+        <div class="process-step-number">03</div>
+        <h3>分流加工與品管</h3>
+        <p>乾燥後的花材進入香包與茶包線；梔子果實則萃取成色素粉，成品經外觀與重量檢查後包裝出貨。</p>
+      </div>
+    </div>
+
+    <div class="highlight-strip">
+      <span><strong>每月預估原料需求</strong><br>約 15 公斤梔子鮮花＋30 公斤梔子果實（支應月銷量與基本安全庫存）。</span>
+      <span><strong>小量多批製作</strong><br>減少庫存壓力，保持產品新鮮，方便依訂單調整產量。</span>
+    </div>
+  </section>
+
+  <!-- Order -->
+  <section id="order">
+    <h2 class="section-title">線上訂購 / 合作洽詢</h2>
+    <p class="section-sub">
+      歡迎填寫表單，我們會以簡訊或 LINE 與您確認訂單與付款方式；
+      若您是咖啡廳、烘焙工作室或通路商，也可在備註中留下需求，我們會另行報價。
+    </p>
+
+    <div class="order-card">
+      <div>
+        <p class="order-note">
+          ※ 目前為少量接單模式，表單送出後 1–2 個工作天內會與您確認庫存與出貨日期。
+        </p>
+        <form onsubmit="alert('Demo 頁面：表單已送出（實際開店時請串接後端或表單服務）'); return false;">
+          <div>
+            <label for="name">姓名</label>
+            <input id="name" type="text" placeholder="請輸入您的姓名" required />
+          </div>
+          <div>
+            <label for="phone">手機</label>
+            <input id="phone" type="tel" placeholder="09xx-xxx-xxx" required />
+          </div>
+          <div>
+            <label for="line">LINE ID（選填）</label>
+            <input id="line" type="text" placeholder="方便之後用 LINE 與你聯絡" />
+          </div>
+          <div>
+            <label for="product">想訂購的產品</label>
+            <select id="product">
+              <option>梔子花淡香水 30ml</option>
+              <option>梔子花茶包（10入）</option>
+              <option>梔子花香包</option>
+              <option>梔子食用色素粉 50g</option>
+              <option>多項產品組合 / 其他</option>
+            </select>
+          </div>
+          <div>
+            <label for="quantity">預估數量</label>
+            <input id="quantity" type="text" placeholder="例如：香水 2 瓶＋茶包 3 盒" />
+          </div>
+          <div>
+            <label for="message">備註</label>
+            <textarea id="message" placeholder="可填寫：希望的收貨日期、是否需要送禮包裝、合作或批發需求等。"></textarea>
+          </div>
+          <div>
+            <button type="submit" class="btn-primary" style="width:100%;">送出訂單需求</button>
+          </div>
+        </form>
+      </div>
+
+      <div class="order-summary">
+        <h3>價格與運送說明（示意，可依實際調整）</h3>
+        <ul>
+          <li>香水 30ml：NT$650 / 瓶</li>
+          <li>梔子花茶包 10 入：NT$150 / 盒</li>
+          <li>梔子花香包：NT$120 / 個</li>
+          <li>梔子食用色素粉 50g：NT$300 / 罐</li>
+        </ul>
+        <p>運費說明：</p>
+        <ul>
+          <li>超商店到店：NT$60（滿 1,200 元免運）</li>
+          <li>宅配：NT$120（滿 2,000 元免運）</li>
+        </ul>
+        <p class="tiny">
+          ＊上列金額皆為示意，可依實際成本與電商平台費用調整。<br>
+          ＊未來若導入 APP，可將本訂購表單改為「會員登入＋線上付款」流程。
+        </p>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer>
+  梔悅 Gardenia & Joy ｜ 嘉義大林梔子花創意商品<br />
+  此頁為示範一頁式官網版型，可作為報告展示或後續正式官網雛形使用。
+</footer>
+
+<div class="floating-cta">
+  <button onclick="document.getElementById('order').scrollIntoView({behavior:'smooth'})">
+    立即填寫訂購表單
+  </button>
+</div>
+
+</body>
+</html>
